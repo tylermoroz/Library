@@ -12,12 +12,16 @@ let selectedValue;
 let myLibrary = [];
 let libraryQueue = [];
 
-function Book(title, author, pageCount){
-    this.title = title,
-    this.author = author,
-    this.pageCount = pageCount,
-    this.readYet = function(){
+class Book {
+    constructor( title, author, pageCount ) {
+        this.title = title;
+        this.author = author;
+        this.pageCount = pageCount;
+    }
+
+    readYet() {
         const radioBtns = document.querySelectorAll('input[name="read"]');
+        
         for(const radio of radioBtns){
             if(radio.checked){
                 selectedValue = radio.value;
@@ -25,6 +29,7 @@ function Book(title, author, pageCount){
             }
         }
     }
+
 }
 
 
