@@ -22,8 +22,7 @@ function displayLibrary(book) {
     let deleteBtn = document.createElement("button");
 
     for(let i = 0; i < libraryQueue.length; i++){ 
-        addBook.style.border = "1px solid black";
-        addBook.style.width = "200px";
+        addBook.classList.add("book-class");
         addTitle.textContent = libraryQueue[i].title;
         addAuthor.textContent = libraryQueue[i].author;
         deleteBtn.textContent = "DELETE";
@@ -47,6 +46,15 @@ function displayLibrary(book) {
 function displayForm() {
     formDiv.style.display = "block";
     body.style.gridTemplateColumns = "300px 1fr";
+    body.style.gridTemplateRows = "200px 1fr";
+    if(newBookBtn.textContent == "NEW BOOK"){
+        newBookBtn.textContent = "CLOSE";
+    } else if (newBookBtn.textContent == "CLOSE") {
+        newBookBtn.textContent = "NEW BOOK";
+        formDiv.style.display = "none";
+        body.style.gridTemplateColumns = "100px 1fr";
+        body.style.gridTemplateRows = "50px 1fr";
+    }
 }
 
 newBookBtn.addEventListener('click', displayForm);
