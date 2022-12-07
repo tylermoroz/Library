@@ -20,26 +20,45 @@ function displayLibrary(book) {
     let addTitle = document.createElement("p");
     let addAuthor = document.createElement("p");
     let deleteBtn = document.createElement("button");
+    let readStatusBtn = document.createElement("button");
 
     for(let i = 0; i < libraryQueue.length; i++){ 
         addBook.classList.add("book-class");
         addTitle.textContent = libraryQueue[i].title;
         addAuthor.textContent = libraryQueue[i].author;
         deleteBtn.textContent = "DELETE";
+        if(book.read == true) {
+            book.read = true;
+            readStatusBtn.textContent = "READ";
+        } else {
+            book.read = false;
+            readStatusBtn.textContent = "NOT READ";
+        }
     }
 
     libraryDiv.appendChild(addBook);
     addBook.appendChild(addTitle);
     addBook.appendChild(addAuthor);
     addBook.appendChild(deleteBtn);
+    addBook.appendChild(readStatusBtn);
 
-    deleteBtn.addEventListener('click', function(){
+    deleteBtn.addEventListener('click', function() {
         addBook.remove();
         myLibrary.splice(book['bookIndex'], 1);
         for(const book of myLibrary){
             book['bookIndex'] = myLibrary.indexOf(book);
         }
     })
+
+    readStatusBtn.addEventListener('click', function() {
+        if(book.read == false) {
+            book.read = true;
+            readStatusBtn.textContent = "READ";
+        } else {
+            book.read = false;
+            readStatusBtn.textContent = "NOT READ";
+        }
+    });
 
 }
 
@@ -65,7 +84,7 @@ function displayBook(event) {
     book.title = document.getElementById("title").value; 
     book.author = document.getElementById("author").value; 
     book.pages = document.getElementById("pages").value; 
-    book.read = document.getElementById("read").value; 
+    book.read = document.getElementById("read").checked; 
     myLibrary.push(book);
     book['bookIndex'] = myLibrary.indexOf(book);
     libraryQueue.push(book);
