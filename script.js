@@ -27,12 +27,20 @@ function displayLibrary(book) {
         addTitle.textContent = libraryQueue[i].title;
         addAuthor.textContent = libraryQueue[i].author;
         deleteBtn.textContent = "DELETE";
+        deleteBtn.classList.add("button-class");
+        readStatusBtn.classList.add("button-class");
+        addTitle.style.fontSize = "24px";
+        addAuthor.style.fontSize = "16px";
+        addAuthor.style.marginTop = "-5px";
+
         if(book.read == true) {
             book.read = true;
-            readStatusBtn.textContent = "READ";
+            readStatusBtn.textContent = "Read";
+            readStatusBtn.style.backgroundColor = "rgb(171, 252, 151)";
         } else {
             book.read = false;
-            readStatusBtn.textContent = "NOT READ";
+            readStatusBtn.textContent = " Not Read";
+            readStatusBtn.style.backgroundColor = "rgb(255, 120, 120)";
         }
     }
 
@@ -53,10 +61,12 @@ function displayLibrary(book) {
     readStatusBtn.addEventListener('click', function() {
         if(book.read == false) {
             book.read = true;
-            readStatusBtn.textContent = "READ";
+            readStatusBtn.textContent = "Read";
+            readStatusBtn.style.backgroundColor = "rgb(171, 252, 151)";
         } else {
             book.read = false;
-            readStatusBtn.textContent = "NOT READ";
+            readStatusBtn.textContent = " Not Read";
+            readStatusBtn.style.backgroundColor = "rgb(255, 120, 120)";
         }
     });
 
