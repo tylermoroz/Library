@@ -29,9 +29,8 @@ function displayLibrary(book) {
         deleteBtn.textContent = "DELETE";
         deleteBtn.classList.add("button-class");
         readStatusBtn.classList.add("button-class");
-        addTitle.style.fontSize = "24px";
-        addAuthor.style.fontSize = "16px";
-        addAuthor.style.marginTop = "-5px";
+        addTitle.classList.add("title-class");
+        addAuthor.classList.add("author-class");
 
         if(book.read == true) {
             book.read = true;

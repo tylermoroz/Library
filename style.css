@@ -59,14 +59,14 @@ header {
 #library-div {
     display: grid;
     grid-column: 1 / 3;
-    grid-template-columns: repeat(auto-fit, 150px);
-    grid-template-rows: repeat(auto-fit, 200px);
+    grid-template-columns: repeat(auto-fit, 165px);
+    grid-template-rows: repeat(auto-fit, 220px);
     gap: 20px;
 }
 
 .book-class {
-    height: 200px;
-    width: 150px;
+    height: 220px;
+    width: 165px;
     border: 2px solid black;
     border-left: 5px solid rgb(34, 34, 34);
     border-radius: 4px 8px 8px 4px;
@@ -76,11 +76,22 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+}
+
+.title-class {
+    font-size: 24px;
+    height: 2em;
+    line-height: 20px;
+    
+}
+
+.author-class {
+    font-size: 16px;
 }
 
 .button-class {
     border: none;
     border-radius: 5px;
     box-shadow: 0px 0px 5px 1px rgb(24, 24, 24);
+    margin: 5px;
 }
