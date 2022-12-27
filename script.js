@@ -73,15 +73,11 @@ function displayLibrary(book) {
 
 function displayForm() {
     formDiv.style.display = "block";
-    body.style.gridTemplateColumns = "300px 1fr";
-    body.style.gridTemplateRows = "200px 1fr";
     if(newBookBtn.textContent == "NEW BOOK"){
         newBookBtn.textContent = "CLOSE";
     } else if (newBookBtn.textContent == "CLOSE") {
         newBookBtn.textContent = "NEW BOOK";
         formDiv.style.display = "none";
-        body.style.gridTemplateColumns = "100px 1fr";
-        body.style.gridTemplateRows = "50px 1fr";
     }
 }
 
