@@ -82,6 +82,7 @@ function displayForm() {
 }
 
 newBookBtn.addEventListener('click', displayForm);
+newBookBtn.classList.add("button-class");
 
 function displayBook(event) {
     event.preventDefault()
@@ -100,3 +101,4 @@ function displayBook(event) {
 }
 
 addBookBtn.addEventListener('click', displayBook);
+addBookBtn.classList.add("button-class");
