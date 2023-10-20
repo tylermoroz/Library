@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Library</title>
-</head>
-<body id="body">
+  </head>
+  <body id="body">
     <div id="head-div">
-        <header id="header">Library</header>
-        <div id="user-input-div">
-            <div id="new-book-button-div">
-                <button id="new-book-button">NEW BOOK</button>
-            </div>
-            <div id="form-div">
-                <form id="book-form">
-                    <div id="form-title">
-                        <label for="title">Title:</label>
-                        <input type="text" name="title" id="title">
-                    </div>
-                    <div id="form-author">
-                        <label for="author">Author:</label>
-                        <input type="text" name="author" id="author">
-                    </div>
-                    <div id="form-pages">
-                        <label for="pages">Page Count:</label>
-                        <input type="text" name="pages" id="pages">
-                    </div>
-                    <div id="form-read">
-                        <label for="read">Read</label>
-                        <input type="checkbox" name="read" id="read">
-                    </div>
-                    <div id="submit-form-div">
-                        <input type="submit" id="add-book" value="ADD BOOK">
-                    </div>
-                </form>
-            </div>
+      <header id="header">Library</header>
+      <div id="user-input-div">
+        <div id="new-book-button-div">
+          <button id="new-book-button">NEW BOOK</button>
         </div>
+        <div id="form-div">
+          <form id="book-form">
+            <div id="form-title">
+              <label for="title">Title:(required)</label>
+              <input type="text" name="title" id="title" required />
+            </div>
+            <div id="form-author">
+              <label for="author">Author:(required)</label>
+              <input type="text" name="author" id="author" required />
+            </div>
+            <div id="form-pages">
+              <label for="pages">Page Count:(required)</label>
+              <input type="text" name="pages" id="pages" required min="1" />
+            </div>
+            <div id="form-read">
+              <label for="read">Read</label>
+              <input type="checkbox" name="read" id="read" />
+            </div>
+            <div id="submit-form-div">
+              <input type="submit" id="add-book" value="ADD BOOK" />
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    
-    <div id="library-div">
 
-    </div>
-    
+    <div id="library-div"></div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
