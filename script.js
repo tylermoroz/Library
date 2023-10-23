@@ -8,14 +8,11 @@ const addBookBtn = document.getElementById("add-book");
 const body = document.getElementById("body");
 let bookIndex;
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
+const Book = (title, author, pages, read) => {
+  return { title, author, pages, read };
+};
 
-function displayLibrary(book) {
+const displayLibrary = (book) => {
   let addBook = document.createElement("div");
   let addTitle = document.createElement("p");
   let addAuthor = document.createElement("p");
@@ -68,9 +65,9 @@ function displayLibrary(book) {
       readStatusBtn.style.backgroundColor = "rgb(255, 120, 120)";
     }
   });
-}
+};
 
-function displayForm() {
+const displayForm = () => {
   formDiv.style.display = "block";
   if (newBookBtn.textContent == "NEW BOOK") {
     newBookBtn.textContent = "CLOSE";
@@ -78,14 +75,15 @@ function displayForm() {
     newBookBtn.textContent = "NEW BOOK";
     formDiv.style.display = "none";
   }
-}
+};
 
 newBookBtn.addEventListener("click", displayForm);
 newBookBtn.classList.add("button-class");
 
-function displayBook(event) {
+const displayBook = (event) => {
   event.preventDefault();
-  let book = new Book();
+  bookValidation();
+  let book = Book();
   book.title = document.getElementById("title").value;
   book.author = document.getElementById("author").value;
   book.pages = document.getElementById("pages").value;
@@ -97,7 +95,28 @@ function displayBook(event) {
   displayLibrary(book);
   libraryQueue.length = 0;
   console.log(myLibrary);
-}
+};
 
-addBookBtn.addEventListener("click", displayBook);
+addBookBtn.addEventListener("submit", displayBook);
 addBookBtn.classList.add("button-class");
+
+const bookValidation = () => {
+  const titleInput = document.getElementById("title");
+  const authorInput = document.getElementById("author");
+  const pageInput = document.getElementById("pages");
+  if (titleInput.checkValidity()) {
+    titleInput.setCustomValidity("Please fill in this field");
+  } else {
+    titleInput.setCustomValidity("");
+  }
+  if (authorInput.checkValidity()) {
+    authorInput.setCustomValidity("Please fill in this field");
+  } else {
+    authorInput.setCustomValidity("");
+  }
+  if (pageInput.checkValidity()) {
+    pageInput.setCustomValidity("Please fill in this field");
+  } else {
+    pageInput.setCustomValidity("");
+  }
+};
