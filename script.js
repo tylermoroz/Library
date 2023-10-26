@@ -5,8 +5,13 @@ const formDiv = document.getElementById("form-div");
 const bookForm = document.getElementById("book-form");
 const newBookBtn = document.getElementById("new-book-button");
 const addBookBtn = document.getElementById("add-book");
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pageInput = document.getElementById("pages");
 const body = document.getElementById("body");
 let bookIndex;
+newBookBtn.classList.add("button-class");
+addBookBtn.classList.add("button-class");
 
 const Book = (title, author, pages, read) => {
   return { title, author, pages, read };
@@ -78,11 +83,9 @@ const displayForm = () => {
 };
 
 newBookBtn.addEventListener("click", displayForm);
-newBookBtn.classList.add("button-class");
 
 const displayBook = (event) => {
   event.preventDefault();
-  bookValidation();
   let book = Book();
   book.title = document.getElementById("title").value;
   book.author = document.getElementById("author").value;
@@ -94,29 +97,17 @@ const displayBook = (event) => {
   bookForm.reset();
   displayLibrary(book);
   libraryQueue.length = 0;
-  console.log(myLibrary);
 };
 
-addBookBtn.addEventListener("submit", displayBook);
-addBookBtn.classList.add("button-class");
-
-const bookValidation = () => {
-  const titleInput = document.getElementById("title");
-  const authorInput = document.getElementById("author");
-  const pageInput = document.getElementById("pages");
-  if (titleInput.checkValidity()) {
-    titleInput.setCustomValidity("Please fill in this field");
-  } else {
-    titleInput.setCustomValidity("");
+bookForm.addEventListener("submit", (event) => {
+  if (titleInput.value.length < 1) {
+    event.preventDefault();
   }
-  if (authorInput.checkValidity()) {
-    authorInput.setCustomValidity("Please fill in this field");
-  } else {
-    authorInput.setCustomValidity("");
+  if (authorInput.value.length < 1) {
+    event.preventDefault();
   }
-  if (pageInput.checkValidity()) {
-    pageInput.setCustomValidity("Please fill in this field");
-  } else {
-    pageInput.setCustomValidity("");
+  if (pageInput.value.length < 1 || pageInput.value == 0) {
+    event.preventDefault();
   }
-};
+  displayBook(event);
+});
